@@ -5,11 +5,12 @@ class Ball {
         this.x = x;
         this.y = y;
         this.r = r;
-
+        this.hue = random(360);
         let options = {
             friction: 0.,
             restitution: 0.5,
-            isStatic : fixed
+            isStatic : fixed,
+            density : 1
         }
         this.body = Bodies.circle(this.x, this.y, this.r/2, options);
         // console.log(this.body)
@@ -32,8 +33,8 @@ class Ball {
         strokeWeight(1);
         stroke(255)
         if (this.body.isStatic) {
-            fill(0,150,0);
-        } else {fill(150,0,0)}
+            fill(0,0,250);
+        } else {fill(this.hue , 255,255)}
         ellipse(0, 0, this.r);
         pop();
     }
